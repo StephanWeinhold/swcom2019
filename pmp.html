@@ -21,6 +21,10 @@
       color: rgb(240, 240, 255);
     }
     
+    .info.active {
+      color: rgb(20, 20, 20);
+    }
+    
     ul {
       list-style: none;
       padding: 0;
@@ -61,11 +65,11 @@
     };
     
     app.switchTable = function() {
-      let infoFields = document.getElementsByClassName('info');
+      let infoFields = document.querySelectorAll('.info');
       
       for (let i = 0, len = infoFields.length; i < len; ++i) {
         infoFields[i].addEventListener('click', function() {
-          this.setAttribute('style', 'color: rgb(0, 0, 0)');
+          this.classList.toggle('active');
         }, false);
       }
     };
