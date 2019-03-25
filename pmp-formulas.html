@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PMBOK Processes</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <style>
+    table {
+      overflow: auto;
+    }
+
+    td, th {
+      background-color: rgb(240, 240, 255);
+      border: 4px solid rgb(255, 255, 255);
+      cursor: default;
+      padding: 8px 20px;
+    }
+
+    .info {
+      color: rgb(240, 240, 255);
+    }
+
+    .info.active {
+      color: rgb(20, 20, 20);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main role="main">
+      <table>
+        <thead>
+          <tr>
+            <th>Short</th>
+            <th>Name</th>
+            <th>Formula</th>
+          </tr>
+        </thead>
+        <tbody id="formulas"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <footer role="contentinfo">
+    <p>Click on the boxes to see the name of the formula and the formula itself.</p>
+    <small>
+      &copy; of the PMBOK and its processes by PMI, &copy; of this site 2019 by <a href="mailto:hello@stephanweinhold.com">Stephan Weinhold</a>.
+    </small>
+  </footer>
+
+  <script>
+    let app = {};
+
+    app.init = function() {
+      app.buildTable();
+    };
+
+    app.switchTable = function() {
+      let infoFields = document.querySelectorAll('.info');
+
+      for (let i = 0, len = infoFields.length; i < len; ++i) {
+        infoFields[i].addEventListener('click', function() {
+          this.classList.toggle('active');
+        }, false);
+      }
+    };
+
+    app.buildTable = function() {
+      app.tableHtml = '';
+
+      for (let [key, value] of Object.entries(app.formulas)) {
+        app.tableHtml += '<tr>';
+        app.tableHtml += '<td>' + key + '</td>';
+
+        for (let [keySub, valueSub] of Object.entries(value)) {
+          app.tableHtml += '<td class="info">' + keySub + '</td>';
+          app.tableHtml += '<td class="info">' + valueSub + '</td>';
+        }
+
+        app.tableHtml += '</tr>';
+      }
+
+      document.getElementById('formulas').innerHTML = app.tableHtml;
+
+      app.switchTable();
+    };
+
+    app.formulas = {
+      'PV': {
+        'Planned Value': 'What the project should be worth.',
+      },
+      'EV': {
+        'Earned Value': 'Percent complete * Budget at Completion',
+      },
+      'AC': {
+        'Actual Cost': 'What the project has spent so far.',
+      },
+      'BAC': {
+        'Budget at Completion': 'What the project budget is.',
+      },
+      'CV': {
+        'Cost Variance': 'Earned Value - Actual Cost',
+      },
+      'SV': {
+        'Schedule Variance': 'Earned Value - Planned Value',
+      },
+      'VAC': {
+        'Variance at Completion': 'Budget at Completion - Estimate at Completion',
+      },
+      'CPI': {
+        'Cost Performance Index': 'Earned Value / Actual Cost',
+      },
+      'SPI': {
+        'Schedule Performance Index': 'Earned Value / Planned Value',
+      },
+      'EAC': {
+        'Estimate at Completion': 'Budget at Completion / Cost Performance Index',
+      },
+      'ETC': {
+        'Estimate to Complete': 'Estimate at Completion - Actual Cost',
+      },
+      'TCPI (Utilizing BAC)': {
+        'To-Complete Performance Index (Utilizing Budget at Completion)': '(Budget at Completion - Earned Value) / (Budget at Completion - Actual Cost)',
+      },
+      'TCPI (Utilizing EAC)': {
+        'To-Complete Performance Index (Utilizing Estimate at Completion)': '(Budget at Completion - Earned Value) / (Estimate at Completion - Actual Cost)',
+      },
+    };
+
+    app.init();
+  </script>
+</body>
+</html>
