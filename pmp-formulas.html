@@ -93,7 +93,19 @@
     };
 
     app.formulas = {
-      'PV': {
+      'PV (Integration Mgmt)': {
+        'Present Value': 'Future Value / (1 + Interest Rate)^Years',
+      },
+      'PERT (Triangular)': {
+        'Expected Activity Duration (or Cost)': '(Pessimistic + Most Likely + Optimistic) / 3',
+      },
+      'PERT (Beta Distr.)': {
+        'Expected Activity Duration (or Cost)': '(Pessimistic + 4 * Most Likely + Optimistic) / 6',
+      },
+      'Total Float': {
+        'Total Float': 'Late Start - Early Start or Late Finish - Early Finish.',
+      },
+      'PV (EVM)': {
         'Planned Value': 'What the project should be worth.',
       },
       'EV': {
@@ -131,6 +143,15 @@
       },
       'TCPI (Utilizing EAC)': {
         'To-Complete Performance Index (Utilizing Estimate at Completion)': '(Budget at Completion - Earned Value) / (Estimate at Completion - Actual Cost)',
+      },
+      'Communication Channels': {
+        'Communication Channels': 'Personas * (Personas - 1) / 2',
+      },
+      'EMV Cost': {
+        'Expected Monetary Value Cost (Risk Mgmt)': 'Propability * Impact',
+      },
+      'EMV Schedule': {
+        'Expected Monetary Value Schedule (Risk Mgmt)': 'Propability * Impact',
       },
     };
 
