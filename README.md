@@ -1,5 +1,7 @@
 # stephanweinhold.com
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/709c96b099e746c8a31aa1522e2d8bb6)](https://app.codacy.com/app/StephanWeinhold/swcom2019?utm_source=github.com&utm_medium=referral&utm_content=StephanWeinhold/swcom2019&utm_campaign=Badge_Grade_Dashboard)
+
 2019 version of my personal webpage. Tried to keep it laid-back.
 
 Based on [Tachyons](https://github.com/tachyons-css/tachyons/).
